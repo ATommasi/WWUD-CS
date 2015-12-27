@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "WWUD";
+}
+
+<div class="jumbotron">
+    <h1>What would you do if...</h1>
+    <p class="lead"><span class="text-success"><b>Question to be answered here?</b></span> </p>
+
+    @using (Html.BeginForm("Action", "Controller")) { }
+
+    <div Class="form-inline">
+
+        <div Class="form-group">
+            <input type="text" Class="form-control" /> <a href="#" Class="btn btn-primary">Submit &raquo;</a>
+        </div>
+    </div>
+
+    }
+
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-2">
+        <h2>Recent Questions</h2>
+        <ul>
+            <li>You won a million dolloars</li>
+            <li>Got stuck in the rain while...</li>
+            <li>Lost your keys in the drain</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h2>Top Users</h2>
+        <ul>
+            <li>User1</li>
+            <li>User2</li>
+            <li>User3</li>
+            <li>User4</li>
+        </ul>
+    </div>
+</div>
