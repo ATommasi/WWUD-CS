@@ -8,11 +8,11 @@ using System.Web;
 
 namespace WWUD2.DAV
 {
-    public partial class MainDBContext : DbContext
+    public partial class MainDBContext : WWUD2.Models.ApplicationDbContext
     { 
         
         public MainDBContext()
-            : base("name=MainDBContext")
+            //: base("name=MainDBContext")
         {
         }
 

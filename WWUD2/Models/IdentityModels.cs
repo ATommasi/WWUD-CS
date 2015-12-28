@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace WWUD2.Models
 {
@@ -12,6 +13,8 @@ namespace WWUD2.Models
         // profile data
         public System.DateTime? BirthDate { get; set; }
         public string HomeTown { get; internal set; }
+
+        public virtual ICollection<Question> Questions { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

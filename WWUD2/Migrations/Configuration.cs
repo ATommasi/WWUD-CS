@@ -1,3 +1,5 @@
+using WWUD2.Models;
+
 namespace WWUD2.Migrations
 {
     using System;
@@ -9,8 +11,7 @@ namespace WWUD2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "WWUD2.DAV.MainDBContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(WWUD2.DAV.MainDBContext context)
@@ -27,6 +28,17 @@ namespace WWUD2.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Questions.AddOrUpdate(q => q.QuestionContent,
+                new Question
+                { QuestionContent = "you won a million dollars",  AddDate = DateTime.Now },
+                new Question
+                { QuestionContent = "lost your keys down the street gutter",  AddDate = DateTime.Now },
+                new Question
+                { QuestionContent = "you broke both your legs",  AddDate = DateTime.Now },
+                new Question
+                { QuestionContent = "Taylor Swift visited your home", AddDate = DateTime.Now }
+            );
         }
     }
 }

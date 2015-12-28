@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WWUD2.DAV;
 using WWUD2.Models;
 
@@ -37,8 +38,10 @@ namespace WWUD2.Controllers
         }
 
         // GET: Questions/Create
+        [Authorize]
         public ActionResult Create()
         {
+            ViewBag.UserGuid = (Guid)Membership.GetUser().ProviderUserKey;
             return View();
         }
 
@@ -47,7 +50,8 @@ namespace WWUD2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionID,QuestionContent")] Question question)
+        [Authorize]
+        public ActionResult Create([Bind(Include = "AddUser,AddDate,QuestionID,QuestionContent")] Question question)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +83,8 @@ namespace WWUD2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionID,QuestionContent")] Question question)
+        [Authorize]
+        public ActionResult Edit([Bind(Include = "AddUser,AddDate,QuestionID,QuestionContent")] Question question)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +96,7 @@ namespace WWUD2.Controllers
         }
 
         // GET: Questions/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +114,7 @@ namespace WWUD2.Controllers
         // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Question question = db.Questions.Find(id);
