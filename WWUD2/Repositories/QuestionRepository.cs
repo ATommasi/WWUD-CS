@@ -5,6 +5,7 @@ using WWUD2.Models;
 using WWUD2.DAV;
 using Microsoft.AspNet.Identity;
 using System.Web;
+using System;
 
 namespace WWUD2.Repositories
 {
@@ -46,6 +47,25 @@ namespace WWUD2.Repositories
             this.Remove(entity.QuestionID);
           
         }
+
+        public Question GetRandom()
+        {
+            var RetQuest = new Question();
+            var selection = context.Questions.Where(o => true);
+
+            try
+            {
+                RetQuest = selection
+                   .OrderBy(c => c.AddDate)
+                    .Skip(new Random().Next(selection.Count()))
+                    .First();
+            }
+            catch
+            {
+
+            }
+
+            return RetQuest;
 
    
     }
