@@ -19,15 +19,22 @@ namespace WWUD2.Controllers
             Models.ViewModels.MainPage MainModel = new Models.ViewModels.MainPage();
 
             var selection = db.Questions.Where(c => c.QuestionContent != "");
-            Models.Question RandomQuestion = selection
+            MainModel.RandomQuestion = new Models.Question();
+            try
+            {
+                Models.Question RandomQuestion = selection
                 .OrderBy(c => c.AddDate)
                 .Skip(new Random().Next(selection.Count()))
                 .First();
 
-            MainModel.RandomQuestion = RandomQuestion;
-            
+                MainModel.RandomQuestion = RandomQuestion;
+            }
+            catch 
+            {
+            }
+
             return View(MainModel);
-        }
+            }
 
         public ActionResult About()
         {
