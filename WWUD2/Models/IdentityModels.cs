@@ -15,6 +15,7 @@ namespace WWUD2.Models
         public string HomeTown { get; internal set; }
 
         public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

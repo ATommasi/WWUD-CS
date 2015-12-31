@@ -1,35 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Identity;
-using System.Web.Security;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace WWUD2.Models
 {
-    public class Question
+    public class Answer
     {
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int QuestionID { get; set; }
+        public int AnswerID { get; set; }
 
-        [Required(ErrorMessage ="You must enter a question")]
-        [StringLength(180,MinimumLength =8)]
-        public string QuestionContent { get; set; }
+        [Required(ErrorMessage = "You must enter an answer")]
+        [StringLength(180, MinimumLength = 8)]
+        public string AnswerContent { get; set; }
 
-        public virtual ICollection<Answer> Answers { get; set; }
 
         private DateTime _date = DateTime.Now;
-        public DateTime AddDate {
+        public DateTime AddDate
+        {
             get { return _date; }
             set { _date = value; }
         }
 
+        [ForeignKey("Question")]
+        public int QuestionID { get; set; }
+        public virtual Question Question { get; set; }
+
         [ForeignKey("User")]
         public string UserID { get; set; }
         public virtual ApplicationUser User { get; set; }
-
     }
 }
