@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WWUD2.DAV;
 using WWUD2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace WWUD2.Controllers
 {
@@ -41,7 +42,7 @@ namespace WWUD2.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.UserGuid = (Guid)Membership.GetUser().ProviderUserKey;
+            //ViewBag.UserGuid = (Guid)Membership.GetUser().ProviderUserKey;
             return View();
         }
 
@@ -55,6 +56,8 @@ namespace WWUD2.Controllers
         {
             if (ModelState.IsValid)
             {
+                question.UserID = User.Identity.GetUserId();
+
                 db.Questions.Add(question);
                 db.SaveChanges();
                 return RedirectToAction("Index");

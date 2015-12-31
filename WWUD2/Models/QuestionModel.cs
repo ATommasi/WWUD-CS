@@ -26,7 +26,8 @@ namespace WWUD2.Models
             set { _date = value; }
         }
 
-
+        [ForeignKey("User")]
+        public string UserID { get; set; }
         public virtual ApplicationUser User { get; set; }
 
     }
