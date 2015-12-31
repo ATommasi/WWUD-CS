@@ -1,0 +1,50 @@
+﻿@model WWUD2.Models.Answer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Answer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Question.QuestionContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question.QuestionContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.HomeTown)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.HomeTown)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AnswerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

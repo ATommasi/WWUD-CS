@@ -24,7 +24,6 @@ namespace WWUD2.DAV
         public virtual DbSet<Models.Question> Questions { get; set; }
         public virtual DbSet<Models.Answer> Answers { get; set; }
 
-
-
+        //public virtual DbSet<Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace WWUD2.Controllers
         {
             Models.ViewModels.MainPage MainModel = new Models.ViewModels.MainPage();
 
-            var selection = db.Questions.Where(c => c.QuestionContent != "");
+            var selection = db.Questions.Where(o => true);
             MainModel.RandomQuestion = new Models.Question();
             try
             {
@@ -29,7 +29,7 @@ namespace WWUD2.Controllers
 
                 MainModel.RandomQuestion = RandomQuestion;
             }
-            catch 
+            catch
             {
             }
 
