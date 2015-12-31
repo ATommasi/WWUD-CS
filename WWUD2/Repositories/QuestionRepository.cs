@@ -1,10 +1,10 @@
 ﻿using Microsoft.Practices.Unity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using WWUD2.Models;
 using WWUD2.DAV;
+using Microsoft.AspNet.Identity;
+using System.Web;
 
 namespace WWUD2.Repositories
 {
@@ -18,6 +18,8 @@ namespace WWUD2.Repositories
 
         public void Add(Question entity)
         {
+            entity.UserID = HttpContext.Current.User.Identity.GetUserId();
+
             context.Questions.Add(entity);
             context.SaveChanges();
         }

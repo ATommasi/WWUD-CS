@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using WWUD2.DAV;
 using WWUD2.Models;
-using Microsoft.AspNet.Identity;
 using WWUD2.Repositories;
 
 namespace WWUD2.Controllers
@@ -68,7 +61,7 @@ namespace WWUD2.Controllers
         {
             if (ModelState.IsValid)
             {
-                question.UserID = User.Identity.GetUserId();
+               
 
                 _repository.Add(question);
                 return RedirectToAction("Index");
