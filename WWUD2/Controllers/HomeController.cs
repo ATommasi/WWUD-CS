@@ -3,15 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WWUD2.DAV;
+using WWUD2.Models;
 
 namespace WWUD2.Controllers
 {
     [RequireHttps]
     public class HomeController : Controller
     {
+        private MainDBContext db = new MainDBContext();
+        
+
         public ActionResult Index()
         {
-            return View();
+            Models.ViewModels.MainPage MainModel = new Models.ViewModels.MainPage();
+
+            var selection = db.Questions.Where(c => c.QuestionContent != "");
+            Models.Question RandomQuestion = selection
+                .OrderBy(c => c.AddDate)
+                .Skip(new Random().Next(selection.Count()))
+                .First();
+
+            MainModel.RandomQuestion = RandomQuestion;
+            
+            return View(MainModel);
         }
 
         public ActionResult About()

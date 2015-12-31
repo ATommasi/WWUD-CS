@@ -1,10 +1,13 @@
-﻿@{
+﻿@model WWUD2.Models.ViewModels.MainPage
+
+@{
+    
     ViewBag.Title = "WWUD";
 }
 
 <div class="jumbotron">
     <h1>What would you do if...</h1>
-    <p class="lead"><span class="text-success"><b>Question to be answered here?</b></span> </p>
+    <p class="lead"><span class="text-success"><b>@Model.RandomQuestion.QuestionContent</b></span> </p>
 
     @using (Html.BeginForm("Action", "Controller")) { }
 
@@ -15,7 +18,7 @@
         </div>
     </div>
 
-    }
+    
 
 </div>
 
