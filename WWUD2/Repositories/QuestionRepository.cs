@@ -45,28 +45,29 @@ namespace WWUD2.Repositories
         public void Remove(Question entity)
         {
             this.Remove(entity.QuestionID);
-          
+
         }
 
-        public Question GetRandom()
-        {
-            var RetQuest = new Question();
-            var selection = context.Questions.Where(o => true);
+        //public Question GetRandom()
+        //{
+        //    var RetQuest = new Question();
+        //    var selection = context.Questions.Where(o => true);
 
-            try
-            {
-                RetQuest = selection
-                   .OrderBy(c => c.AddDate)
-                    .Skip(new Random().Next(selection.Count()))
-                    .First();
-            }
-            catch
-            {
+        //    try
+        //    {
+        //        RetQuest = selection
+        //           .OrderBy(c => c.AddDate)
+        //            .Skip(new Random().Next(selection.Count()))
+        //            .First();
+        //    }
+        //    catch
+        //    {
 
-            }
+        //    }
 
-            return RetQuest;
+        //    return RetQuest;
 
-   
+
+        //}
     }
 }

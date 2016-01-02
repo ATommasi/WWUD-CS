@@ -4,6 +4,7 @@ using Microsoft.Practices.Unity.Configuration;
 using WWUD2.Repositories;
 using WWUD2.Models;
 using System.Web.Mvc;
+using WWUD2.Controllers;
 
 namespace WWUD2.App_Start
 {
@@ -41,7 +42,11 @@ namespace WWUD2.App_Start
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Question, int>, QuestionRepository>();
-            
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            //container.RegisterType<RolesAdminController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
+            //container.RegisterType<UsersAdminController>(new InjectionConstructor());
+
         }
     }
 }
