@@ -6,16 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WWUD2.DAV
+namespace WWUD2.DAL
 {
     public partial class MainDBContext : WWUD2.Models.ApplicationDbContext
     { 
         
         public MainDBContext()
-            //: base("name=MainDBContext")
-        {
+            {
+            //base("MainDBContext");
         }
 
+        public virtual void Commit()
+        {
+            base.SaveChanges();
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

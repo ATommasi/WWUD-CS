@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Net;
 using System.Web.Mvc;
-using WWUD2.DAV;
+using WWUD2.DAL;
 using WWUD2.Models;
 using WWUD2.Repositories;
 
