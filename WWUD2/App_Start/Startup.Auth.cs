@@ -54,15 +54,15 @@ namespace WWUD2
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1521306464864094",
+               appSecret: "c5b8c2468e1222337ed9a556cf8a3426");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "749597221476-upfquq7g36c4et5qfaua7urc3bb661c0.apps.googleusercontent.com",
+                ClientSecret = "Xys1TQtChQwWIFpCN6e97fBL"
+            });
         }
     }
 }

@@ -1,34 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using WWUD2.DAV;
 using WWUD2.Models;
+using WWUD2.Repositories;
 
 namespace WWUD2.Controllers
 {
     public class QuestionsController : Controller
     {
+
+        // Property of the type IRepository <TEnt, in TPk>
+        private IRepository<Question, int> _repository;
+
+        // Constructer - The Dependency Injection of the IRepository
+        public QuestionsController(IRepository<Question, int> repo)
+        {
+            _repository = repo;
+        }
+
         private MainDBContext db = new MainDBContext();
 
         // GET: Questions
         public ActionResult Index()
         {
-            return View(db.Questions.ToList());
+            var quest = _repository.Get();
+            return View(quest);
         }
 
         // GET: Questions/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Question question = db.Questions.Find(id);
+            Question question = _repository.Get(id);
             if (question == null)
             {
                 return HttpNotFound();
@@ -37,9 +44,11 @@ namespace WWUD2.Controllers
         }
 
         // GET: Questions/Create
+        [Authorize]
         public ActionResult Create()
         {
-            return View();
+            var Quest = new Question();
+            return View(Quest);
         }
 
         // POST: Questions/Create
@@ -47,12 +56,14 @@ namespace WWUD2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionID,QuestionContent")] Question question)
+        [Authorize]
+        public ActionResult Create([Bind(Include = "AddUser,AddDate,QuestionID,QuestionContent")] Question question)
         {
             if (ModelState.IsValid)
             {
-                db.Questions.Add(question);
-                db.SaveChanges();
+               
+
+                _repository.Add(question);
                 return RedirectToAction("Index");
             }
 
@@ -60,13 +71,14 @@ namespace WWUD2.Controllers
         }
 
         // GET: Questions/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Question question = db.Questions.Find(id);
+
+            Question question = _repository.Get(id);
             if (question == null)
             {
                 return HttpNotFound();
@@ -79,10 +91,12 @@ namespace WWUD2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionID,QuestionContent")] Question question)
+        [Authorize]
+        public ActionResult Edit([Bind(Include = "AddUser,AddDate,QuestionID,QuestionContent")] Question question)
         {
             if (ModelState.IsValid)
             {
+                
                 db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -91,13 +105,16 @@ namespace WWUD2.Controllers
         }
 
         // GET: Questions/Delete/5
-        public ActionResult Delete(int? id)
+        [Authorize]
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Question question = db.Questions.Find(id);
+
+
+            Question question = _repository.Get(id);
             if (question == null)
             {
                 return HttpNotFound();
@@ -108,11 +125,10 @@ namespace WWUD2.Controllers
         // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
-            Question question = db.Questions.Find(id);
-            db.Questions.Remove(question);
-            db.SaveChanges();
+            _repository.Remove(id);
             return RedirectToAction("Index");
         }
 

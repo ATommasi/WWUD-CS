@@ -8,11 +8,11 @@ using System.Web;
 
 namespace WWUD2.DAV
 {
-    public partial class MainDBContext : DbContext
+    public partial class MainDBContext : WWUD2.Models.ApplicationDbContext
     { 
         
         public MainDBContext()
-            : base("name=MainDBContext")
+            //: base("name=MainDBContext")
         {
         }
 
@@ -22,8 +22,8 @@ namespace WWUD2.DAV
         }
 
         public virtual DbSet<Models.Question> Questions { get; set; }
+        public virtual DbSet<Models.Answer> Answers { get; set; }
 
-
-
+        //public virtual DbSet<Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }
