@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using WWUD2.Models;
+using WUDIF.Models;
 
-namespace WWUD2
+namespace WUDIF
 {
     public partial class Startup
     {
