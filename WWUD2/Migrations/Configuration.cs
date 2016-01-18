@@ -1,20 +1,20 @@
-using WWUD2.Models;
+using WUDIF.Models;
 
-namespace WWUD2.Migrations
+namespace WUDIF.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WWUD2.DAV.MainDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<WUDIF.DAL.MainDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(WWUD2.DAV.MainDBContext context)
+        protected override void Seed(WUDIF.DAL.MainDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

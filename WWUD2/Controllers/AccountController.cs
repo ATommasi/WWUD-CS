@@ -8,10 +8,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using WWUD2.Models;
+using WUDIF.Models;
 
 
-namespace WWUD2.Controllers
+namespace WUDIF.Controllers
 {
 
     [Authorize]

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(WWUD2.Startup))]
-namespace WWUD2
+[assembly: OwinStartupAttribute(typeof(WUDIF.Startup))]
+namespace WUDIF
 {
     public partial class Startup
     {

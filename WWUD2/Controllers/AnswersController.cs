@@ -6,10 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using WWUD2.DAV;
-using WWUD2.Models;
+using WUDIF.DAL;
+using WUDIF.Models;
 
-namespace WWUD2.Controllers
+namespace WUDIF.Controllers
 {
     public class AnswersController : Controller
     {

@@ -1,12 +1,12 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
-using WWUD2.Repositories;
-using WWUD2.Models;
+using WUDIF.Repositories;
+using WUDIF.Models;
 using System.Web.Mvc;
-using WWUD2.Controllers;
+using WUDIF.Controllers;
 
-namespace WWUD2.App_Start
+namespace WUDIF.App_Start
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.

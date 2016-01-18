@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WWUD2.DAV;
-using WWUD2.Models;
+using WUDIF.DAL;
+using WUDIF.Models;
 
-namespace WWUD2.Controllers
+namespace WUDIF.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class HomeController : Controller
     {
         private MainDBContext db = new MainDBContext();
@@ -29,8 +29,9 @@ namespace WWUD2.Controllers
 
                 MainModel.RandomQuestion = RandomQuestion;
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
             }
 
             return View(MainModel);

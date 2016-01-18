@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WWUD2.Models
+namespace WUDIF.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

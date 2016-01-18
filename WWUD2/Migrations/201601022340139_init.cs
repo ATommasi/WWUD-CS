@@ -1,4 +1,4 @@
-namespace WWUD2.Migrations
+namespace WUDIF.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

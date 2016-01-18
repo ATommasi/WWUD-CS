@@ -1,13 +1,13 @@
 ﻿using Microsoft.Practices.Unity;
 using System.Collections.Generic;
 using System.Linq;
-using WWUD2.Models;
-using WWUD2.DAV;
+using WUDIF.Models;
+using WUDIF.DAL;
 using Microsoft.AspNet.Identity;
 using System.Web;
 using System;
 
-namespace WWUD2.Repositories
+namespace WUDIF.Repositories
 {
     // The QuestionRespository class. This is used to 
     // Isolate the EntityFramework based Data Access Layer from 

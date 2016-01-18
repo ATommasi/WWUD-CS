@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace WWUD2
+namespace WUDIF
 {
     public class FilterConfig
     {

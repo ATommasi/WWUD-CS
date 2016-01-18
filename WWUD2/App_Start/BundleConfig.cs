@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace WWUD2
+namespace WUDIF
 {
     public class BundleConfig
     {

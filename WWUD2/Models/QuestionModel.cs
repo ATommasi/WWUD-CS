@@ -7,7 +7,7 @@ using System.Web.Security;
 using System.Linq;
 using System.Web;
 
-namespace WWUD2.Models
+namespace WUDIF.Models
 {
     public class Question
     {

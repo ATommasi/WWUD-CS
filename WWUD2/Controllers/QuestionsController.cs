@@ -1,11 +1,11 @@
 ﻿using System.Data.Entity;
 using System.Net;
 using System.Web.Mvc;
-using WWUD2.DAV;
-using WWUD2.Models;
-using WWUD2.Repositories;
+using WUDIF.DAL;
+using WUDIF.Models;
+using WUDIF.Repositories;
 
-namespace WWUD2.Controllers
+namespace WUDIF.Controllers
 {
     public class QuestionsController : Controller
     {
