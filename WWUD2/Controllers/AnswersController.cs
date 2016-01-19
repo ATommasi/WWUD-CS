@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using WUDIF.DAL;
 using WUDIF.Models;
 
@@ -54,6 +55,9 @@ namespace WUDIF.Controllers
         {
             if (ModelState.IsValid)
             {
+                answer.UserID = User.Identity.GetUserId();
+                answer.AddDate = DateTime.Now;
+
                 db.Answers.Add(answer);
                 db.SaveChanges();
                 return RedirectToAction("Index");

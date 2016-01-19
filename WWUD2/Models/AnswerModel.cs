@@ -15,7 +15,7 @@ namespace WUDIF.Models
         public int AnswerID { get; set; }
 
         [Required(ErrorMessage = "You must enter an answer")]
-        [StringLength(180, MinimumLength = 8)]
+        [StringLength(180, MinimumLength = 8, ErrorMessage ="Answer must be between 8 and 180 characters")]
         public string AnswerContent { get; set; }
 
 

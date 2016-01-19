@@ -14,11 +14,14 @@
 
      @Html.AntiForgeryToken()
     <div Class="form-inline">
-        @Html.HiddenFor(Model => Model.RandomQuestion.QuestionID)    
+        @Html.Hidden("Answer.QuestionID", Model.RandomQuestion.QuestionID, new { @id = "Answer.QuestionID" })    
         <div Class="form-group">
-            @Html.EditorFor(Model => Model.RandomQuestion.Answers.FirstOrDefault().AnswerContent, new { htmlAttributes = new { @class = "form-control", @placeholder="Your Answer" } })
-            @Html.ValidationMessageFor(Model =>Model.RandomQuestion.Answers.FirstOrDefault().AnswerContent,  "", new { @class = "text-danger" })
+            @Html.EditorFor(Model => Model.Answer.AnswerContent, new { htmlAttributes = new { @class = "form-control", @placeholder="Your Answer" } })
+            
             <input type="submit" value="Submit" class="btn btn-primary"/>
+            <div class="col-md-12">
+                @Html.ValidationMessageFor(Model => Model.Answer.AnswerContent, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
 
@@ -45,3 +48,6 @@
         </ul>
     </div>
 </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
